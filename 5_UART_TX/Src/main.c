@@ -1,0 +1,38 @@
+#include "stm32f4xx.h"
+
+#define GPIOAEN			(1U<<0) // put a 1 in position 0 0b00000001
+#define GPIOCEN			(1U<<2) // put a 1 in position 2 0b00000100
+
+
+#define PIN_5			(1U<<5) // same for 0b00100000
+#define LED_PIN 		PIN_5
+
+#define PIN_13			(1U<<13)
+#define BTN_PIN			(PIN_13)
+
+
+int main(void){
+
+	//Enable clk access to GPIOA and GPIOC
+	// When push button is on, the led goes off
+	RCC->AHB1ENR |= GPIOAEN;// enable clock for GPIOA, so you can control your pins
+	RCC->AHB1ENR |= GPIOCEN;// enable clock for GPIOC, so you can control your pins
+
+//  set PA5 as output pin
+	GPIOA->MODER |=  (1U<<10); //mode is used for setting the mode register
+	GPIOA->MODER &=~ (01U<<11);
+
+//  set PC13 as input pin
+	GPIOC->MODER &=~ (1U<<26);
+	GPIOC->MODER &=~ (1U<<27);
+
+	while(1){
+		// check if btn is pressed
+		if(GPIOC->IDR & BTN_PIN){
+		GPIOA->BSRR = (1U<<21);
+		}
+		else {
+		GPIOA->BSRR = LED_PIN;
+		}
+	}
+}
