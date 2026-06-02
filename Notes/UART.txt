@@ -1,0 +1,41 @@
+SERIAL vs PARALLEL
+it uses synchronous and asynchronous
+synchronous means clock is transmitted with the data.
+asynchronous means no clock is transmitted. Transmitter and receiver agree on the the clock speed for the data transmission(Baudrate). You will need to conf baudrate for both receiver and transmitted.
+==============================================
+
+in Serial communication, data is transferred one at a time and in parallel, all the data is transferred at the same time. 
+
+UART(Universal asynchronous receiver/transmitter) and USART(Universal synchronous receiver/transmitter) are serial data communication devices
+
+==============================================
+
+Duplex = data can be transmitted and received
+
+Half duplex = data can be transferred only in one way at a time
+
+Full Duplex = data can be transferred and received at the same time
+
+Simplex = data can be transmitted only or received only
+
+================================================
+
+in UART each data is packed in start and stop bits
+
+start bit is always 1 bit, the value of the start bit is always 0
+stop bit can be 1 or 2 bits, the value of the stop bit is always 1
+
+example:
+	Transmitting ASCII 'A' = 0100 0001
+
+	11		0100 0001		0
+     stop bit		    A		    start bit
+
+================================================
+
+Baudrate = speed expressed in bits per second
+Stop bit = number of stop bits transmitted, can be 1 or 2
+Parity = indicates whether odd or even, used for error checking
+Mode = Whether its RX or TX or both
+Word length = number of data bits to transmit or receive
+Hardware flow control = whether hardware flow control is enabled or disabled

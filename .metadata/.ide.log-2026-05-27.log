@@ -1,0 +1,6 @@
+2026-05-27 13:54:01,719 [INFO] Activator:176 - 
+
+
+2026-05-27 13:54:01,723 [INFO] Activator:177 - !SESSION log4j initialized
+2026-05-27 13:54:05,404 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-05-27 19:16:01,156 [ERROR] AdobePublisher:187 - Exception while getting the server answer: java.net.SocketTimeoutException: Read timed out

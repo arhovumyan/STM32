@@ -1,0 +1,29 @@
+Pins are grouped to PORTS
+PA1 = Port A Pin 1
+
+====================================
+COMMON REGISTERS
+====================================
+
+GPIO is used to turn on/off or read simple signals like LEDs, buttons, relays and so on.
+SPIO is used to send data between microcontroller devices like sensors, displays, SD cards or ADCs.
+
+====================================
+BUSES let peripherals(CPU, memory, Sensors, etc..) connect to each other.
+====================================
+
+APB - slower connection, minimum 2 clock cycles to access peripherals. This is used for GPIO, UART, SPI, I2C, timers and watchdogs.
+
+AHB - faster connection, 1 clock cycle to access peripherals. This is mostly used for CPU, memory, DMA and other high speed peripherals.
+
+====================================
+CLOCK SOURCES
+====================================
+
+On-Chip RC OSCILATOR is the least percise. This is an internal clock built into the microcontroller, its cheap and easy to use, but its the least precise since temperature and voltage can have addects on it.
+
+Externally Connected Crystal is the most precise. This used physical crystal connected outside of hte microtroller. Used when accurate timing matters.
+
+Phase locked Loop(PLL) takes an existing clock source and multiplies to create a faster system clcok for the CPU and other Peripherals. Basically an amplifier for the given clock speed.
+
+

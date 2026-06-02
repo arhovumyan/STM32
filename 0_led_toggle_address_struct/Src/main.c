@@ -27,12 +27,24 @@
 #define PIN5					(1U<<5)
 #define LED_PIN					PIN5
 
-/*
- * we want to change the pin5 to be 01 which is general purpose output mode ( Reference manual p152)
- * to do so, you do the following
- * (1U<<10)    // this sets it as 1
- * &=~(1U<<11) // this sets it as 0
-*/
+#define __IO volatile
+
+//
+//typedef struct{
+//
+//}GPIO_TypeDef;
+
+typedef struct {
+	__IO unit32_t MODER; 	// mode register
+	__IO unit32_t OTYPER; 	// output type register
+	__IO unit32_t OSPEEDR; 	// output speed register
+	__IO unit32_t PUPDR; 	// pull-up/pull-down
+	__IO unit32_t IDR; 		// input data
+	__IO unit32_t ODR;		// output data
+	__IO unit32_t BSRR;		// bit set/reset
+	__IO unit32_t LCKR;		// configuration lock
+	__IO unit32_t AFR[2];	// alternate function
+}GPIO_TypeDef;
 
 int main () {
 	/* 1. enable clock access to GPIOA */
